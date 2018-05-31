@@ -5,15 +5,15 @@ import fileinput
 import re
 
 
-PATH = "/home/danylo/stuff/index.html"
+PATH = "/var/www/site/index.html"
 REGEX = 'src=+"a+[\w*/]*.\w*.\w*"'
 VARIABLE = 'static'
 DIR = None
 
 DESCRIPTION = \
-'Link path replacer for Django v0.1 - author grizzly.drum@gmail.com. \n\n' \
-'Modify all src links ("*.css", "*.js", \n' + \
-'and etc) in to the local static src path like: \n' + \
+'Link path replacer for Django v0.1 - author polka1. \n\n' \
+'Modify all src links ("*.css", "*.js", and etc) \n' + \
+'in to the local static src path like: \n' + \
 '"<img class ="img-fluid "src="assets/img/about/img1.jpg" alt=""> " \n' + \
 'to <img class ="img-fluid "src=" {% static \'assets/img/about/img1.jpg\'}% "alt=""> \n' \
 'This script can work with pathways like: \n' \
@@ -23,7 +23,7 @@ DESCRIPTION = \
 
 def pars_args():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
-    parser.add_argument("-f", "--PATH", required=False, default=PATH, type=str, help="Full path to html file.")
+    parser.add_argument("-f", "--PATH", required=True, default=PATH, type=str, help="Full path to html file.")
     parser.add_argument("-d", "--DIR", required=False, default=DIR, type=str, help="Path to directory with files")
     parser.add_argument("-r", "--REGEX", required=False, default=REGEX, type=str,
                         help="Write custom regex. By default: \n%s" % REGEX)
@@ -59,5 +59,4 @@ def replace(PATH):
 
 if __name__ == '__main__':
     args = pars_args()
-    print(args)
     main()
