@@ -7,8 +7,9 @@ This script will help you integrate any html template to your Django project.
 It instead of you changes the path of the source, which saves a lot of your time
 
 Modify all src links ("*.css", "*.js", and etc) in to the local static src path like:
-"<img class ="img-fluid "src="assets/img/about/img1.jpg" alt=""> " to 
-"<img class ="img-fluid "src=" {% static 'assets/img/about/img1.jpg'}% "alt=""> 
+> "<img class ="img-fluid" src="assets/img/about/img1.jpg" alt=""> " 
+to 
+> "<img class ="img-fluid" src="{% static 'assets/img/about/img1.jpg' }%" alt="">"
 
 This script can work with pathways like: 
 * src="assets/img/about/img1.jpg"
